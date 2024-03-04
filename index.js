@@ -14,7 +14,7 @@ const checkFileMiddleware = (req, res, next) => {
             console.log(`file ${filename} doesn't exist`);
             fs_1.default.writeFile("files/" + req.params.filename, "Hello, File!", (err) => {
                 if (err) {
-                    res.status(500).send("error creating file");
+                    res.status(500).send(err);
                 }
                 else {
                     next();
